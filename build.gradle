@@ -12,12 +12,17 @@ plugins {
 
     // Apply the application plugin to add support for building an application
     id 'application'
+
+    id 'org.openjfx.javafxplugin' version '0.0.7'
+
 }
 
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    mavenLocal()
+    mavenCentral()
 }
 
 dependencies {
@@ -26,7 +31,15 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+
+
 }
+
+javafx {
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.base', 'javafx.graphics' ]
+}
+
 
 // Define the main class for the application
 mainClassName = 'kalender.App'
+
