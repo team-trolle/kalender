@@ -3,12 +3,37 @@
  */
 package kalender;
 
-public class App {
+import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.Parent;
+
+import java.io.IOException;
+
+import javafx.application.Application;
+
+public class App extends Application {
+    
+    @Override
+    public void start(Stage stage){
+        try{
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("./fxml_test.fxml"));
+            Scene scene = new Scene(root, 600, 400);
+            stage.setTitle("Hello World");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.err.println("Could not find file");
+            e.printStackTrace();
+        }
+    }
+
     public String getGreeting() {
         return "Hello world.";
     }
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+        launch();
     }
 }
